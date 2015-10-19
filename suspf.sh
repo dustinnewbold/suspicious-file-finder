@@ -79,7 +79,7 @@ writable_dirs=$(find $directory -type d \( -perm -o+w -or \( -perm -g+w -group $
 for dir in $writable_dirs
 do
 	# echo "Checking directory: $dir"
-	find "$dir" -type f -iname '*.php*'
+	find "$dir" -maxdepth 1 -type f -iname '*.php*'
 done
 echo
 echo
