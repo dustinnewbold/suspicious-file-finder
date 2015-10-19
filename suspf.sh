@@ -46,9 +46,15 @@ find "$directory" -type f -iname '*.php*' -user $apacheUser -print0 | xargs -0 g
 echo
 echo
 
-echo "Apache files with base64_decode"
+echo "Apache files with base64_decode()"
 echo "------------------------"
 find "$directory" -type f -iname '*.php*' -user $apacheUser -print0 | xargs -0 grep -l "base64_decode *(" --color
+echo
+echo
+
+echo "Apache files with eval(base64_decode())"
+echo "------------------------"
+find "$directory" -type f -iname '*.php*' -user $apacheUser -print0 | xargs -0 grep -l "eval *( *base64_decode *(" --color
 echo
 echo
 
