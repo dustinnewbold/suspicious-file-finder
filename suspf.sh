@@ -58,12 +58,19 @@ find "$directory" -type f -iname '*.php*' -user $apacheUser -print0 | xargs -0 g
 echo
 echo
 
+echo "Apache files with the phrase: hacked by"
+echo "------------------------"
+find "$directory" -type f -iname '*.php*' -user $apacheUser -print0 | xargs -0 grep -l "hacked by" --color
+echo
+echo
+
+
 
 echo "All PHP files in a writable directory"
 echo "------------------------"
 writable_dirs=$(find $directory -type d \( -perm -o+w -or \( -perm -g+w -group $apacheGroup \) -or \( -perm -g+w -group $apacheGroup \) -or -user $apacheUser \))
  
-for dir in "$writable_dirs"
+for dir in $writable_dirs
 do
 	# echo "Checking directory: $dir"
 	find "$dir" -type f -iname '*.php*'
