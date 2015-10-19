@@ -61,7 +61,7 @@ echo
 
 echo "All PHP files in a writable directory"
 echo "------------------------"
-writable_dirs=$(find . -type d \( -perm -o+w -or \( -perm -g+w -group $apacheGroup \) -or \( -perm -g+w -group $apacheGroup \) -or -user $apacheUser \))
+writable_dirs=$(find $directory -type d \( -perm -o+w -or \( -perm -g+w -group $apacheGroup \) -or \( -perm -g+w -group $apacheGroup \) -or -user $apacheUser \))
  
 for dir in $writable_dirs
 do
