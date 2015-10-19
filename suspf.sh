@@ -1,6 +1,6 @@
 #!/bin/bash
-apacheUser="dnewbold"
-apacheGroup="wheel"
+apacheUser="apache"
+apacheGroup="apache"
 directory="."
 
 echo "============================"
@@ -45,3 +45,9 @@ do
     #echo $dir
     find $dir -type f -name '*.php'
 done
+echo
+echo
+
+
+echo "Done checking all files! Review the list as there are likely many false positives."
+echo
